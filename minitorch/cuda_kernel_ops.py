@@ -25,7 +25,7 @@ import torch
 # Load the shared library
 lib = ctypes.CDLL("minitorch/cuda_kernels/combine.so")
 lib_softmax = ctypes.CDLL("minitorch/cuda_kernels/softmax_kernel.so")
-lib_layernorm = ctypes.CDLL("minitorch/cuda_kernels/layernorm_kernel.so")
+# lib_layernorm = ctypes.CDLL("minitorch/cuda_kernels/layernorm_kernel.so")
 datatype = np.float32
 
 # function map
