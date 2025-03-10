@@ -224,7 +224,6 @@ __global__ void ker_attn_softmax(T *inp, const T *attn_mask, int from_len,
         BlockStore(ts_store).Store(inp + (token_id + i) * to_len, inp_val[i],
                                    to_len);
       }
-      // END ASSIGN3_1
     // END ASSIGN3_1
   }  // blockIdx.x
 }
