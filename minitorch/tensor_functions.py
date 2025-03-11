@@ -426,8 +426,8 @@ class Attn_Softmax(Function):
     @staticmethod
     def backward(ctx: Context, out_grad: Tensor) -> Tensor:
       #   BEGIN ASSIGN3_1 
-      inp, _ = ctx.saved_values
-      return out_grad.f.attn_softmax_bw(out_grad, inp)
+      inp, mask = ctx.saved_values
+      return (out_grad.f.attn_softmax_bw(out_grad, inp), mask)
       #   END ASSIGN3_1
 
 

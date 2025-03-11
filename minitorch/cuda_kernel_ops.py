@@ -406,8 +406,6 @@ class CudaKernelOps(TensorOps):
     @staticmethod
     def attn_softmax_bw(out_grad: Tensor, soft_inp: Tensor):
       #   BEGIN ASSIGN3_1
-      print(f"out_grad.shape: {out_grad.shape}")
-      print(f"soft_inp.shape: {soft_inp.shape}")
       batch_size, nhead, from_len, to_len = soft_inp.shape
       rows = batch_size * nhead * from_len
       stream_1 = torch.cuda.current_stream().cuda_stream
