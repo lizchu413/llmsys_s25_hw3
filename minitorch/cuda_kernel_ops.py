@@ -406,7 +406,11 @@ class CudaKernelOps(TensorOps):
     @staticmethod
     def attn_softmax_bw(out_grad: Tensor, soft_inp: Tensor):
       #   BEGIN ASSIGN3_1
-      raise("Not implemented")
+      print(f"out_grad.shape: {out_grad.shape}")
+      print(f"soft_inp.shape: {soft_inp.shape}")
+      stream_1 = torch.cuda.current_stream().cuda_stream
+
+      return out_grad
       #   END ASSIGN3_1
 
     @staticmethod
