@@ -75,7 +75,7 @@ __global__ void ker_layer_norm(T *ln_res, T *vars, T *means, const T *inp,
   __syncthreads();
 
   // Step 3
-  float4 *res_f4 = reinterpret_cast<const float4 *>(ln_res) + blockIdx.x * hidden_size;
+  float4 *res_f4 = reinterpret_cast<float4 *>(ln_res) + blockIdx.x * hidden_size;
   for (uint idx = threadIdx.x; idx < hidden_size; idx += blockDim.x) {
     float4 val = inp_f4[idx];
     float4 scale_cast = (reinterpret_cast<const float4 *>(scale))[idx];
