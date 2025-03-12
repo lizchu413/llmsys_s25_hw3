@@ -214,8 +214,7 @@ __global__ void ker_attn_softmax(T *inp, const T *attn_mask, int from_len,
 
     /* step 3. compute final result */
     // BEGIN ASSIGN3_1
-    // Hint: use __fdividef() to compute division
-    // Hint: use BlockStore to store the result
+    // from ker_attn_softmax_lt32
     for (int i = 0; i < token_per_reduce && (token_id + i) < from_len; i++) {
         // l_sum[i] = __fdividef(1.0f, l_sum[i] + EPSILON); // deleted this
         for (int j = 0; j < ele_per_thread; j++) {

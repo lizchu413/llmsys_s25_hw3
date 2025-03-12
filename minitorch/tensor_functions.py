@@ -424,7 +424,7 @@ class Attn_Softmax(Function):
       #   END ASSIGN3_1
 
     @staticmethod
-    def backward(ctx: Context, out_grad: Tensor) -> Tensor:
+    def backward(ctx: Context, out_grad: Tensor) -> Tuple[Tensor, Tensor]:
       #   BEGIN ASSIGN3_1 
       inp, mask = ctx.saved_values
       return (out_grad.f.attn_softmax_bw(out_grad, inp), mask)
@@ -435,7 +435,8 @@ class LayerNorm(Function):
     @staticmethod
     def forward(ctx: Context, inp: Tensor, gamma: Tensor, beta: Tensor) -> Tensor:
       #   BEGIN ASSIGN3_2 
-      raise NotImplementedError("Need to implement for Assignment 3")
+      ctx.save_for_backward(inp, gamma, beta)
+      return inp.f.layernorm_fw(inp, gamma, beta)
       #   END ASSIGN3_2
 
     @staticmethod

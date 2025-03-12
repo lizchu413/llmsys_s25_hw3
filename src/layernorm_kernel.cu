@@ -28,7 +28,7 @@ blockDim.x = hidden_size
 @param
 ln_res: [batch_size * seq_len, hidden_size], ln result.
 vars: [batch_size * seq_len], variance per token
-means: [batch_size * seq_len], means per token, can be nullput
+means: [batch_size * seq_len], means per token, can be nullptr
 inp: [batch_size * seq_len, hidden_size], ln input.
 scale: [hidden_size], ln scale
 bias: [hidden_size], ln bias
@@ -43,20 +43,46 @@ __global__ void ker_layer_norm(T *ln_res, T *vars, T *means, const T *inp,
   // 1. Compute x and x^2 with reinterpret_cast by casting to float4 for speedup
   // 2. Compute reduce sum with blockReduce and add epsilon with LN_EPSILON
   // 3. Compute layernorm result with reinterpret_cast by casting to float4 for speedup
-  
+
   // Step 1
   float l_sum = 0;
+  float l_squared_sum = 0;
   const float4 *inp_f4 = reinterpret_cast<const float4 *>(inp) + blockIdx.x * hidden_size;  
   for (uint idx = threadIdx.x; idx < hidden_size; idx += blockDim.x) {
     float4 val = inp_f4[idx];
     l_sum += val.x + val.y + val.z + val.w;
+    l_squared_sum += val.x * val.x + val.y * val.y + val.z * val.z + val.w * val.w;
   }
+  int block_x = blockIdx.x;
 
   // Step 2
+  blockReduce<ReduceType::kSum, 1>(l_sum);
+  blockReduce<ReduceType::kSum, 1>(l_squared_sum);
+  // write shared
+  __shared__ float s_mu;
+  __shared__ float s_sig_squared;
+  if (threadIdx.x == 0) {
+    s_mu = l_sum / float(hidden_size);
+    if (means != nullptr) {
+      means[block_x] = s_mu;
+    }
+    s_sig_squared = l_squared_sum / float(hidden_size) -  s_mu * s_mu + LN_EPSILON;
+    vars[block_x] = s_sig_squared;
+    s_sig_squared = rsqrt(s_sig_squared);
+  }
+  __syncthreads();
 
   // Step 3
-  
-  assert(false && "Not Implemented");
+  const float4 *res_f4 = reinterpret_cast<const float4 *>(ln_res) + blockIdx.x * hidden_size;
+  for (uint idx = threadIdx.x; idx < hidden_size; idx += blockDim.x) {
+    float4 val = inp_f4[idx];
+    val.x = (val.x - s_mean) * s_var * scale[idx].x + bias[idx].x;
+    val.y = (val.y - s_mean) * s_var * scale[idx].y + bias[idx].y;
+    val.z = (val.z - s_mean) * s_var * scale[idx].z + bias[idx].z;
+    val.w = (val.w - s_mean) * s_var * scale[idx].w + bias[idx].w;
+    res_f4[idx] = val;
+  }
+
   /// END ASSIGN3_2
 }
 
