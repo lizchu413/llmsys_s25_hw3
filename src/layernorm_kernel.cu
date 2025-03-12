@@ -45,8 +45,10 @@ __global__ void ker_layer_norm(T *ln_res, T *vars, T *means, const T *inp,
   // 3. Compute layernorm result with reinterpret_cast by casting to float4 for speedup
 
   // Step 1
-  float l_sum = 0;
-  float l_squared_sum = 0;
+  float l_sum[1];
+  float l_squared_sum[1];
+  l_sum = 0;
+  l_squared_sum = 0;
   const float4 *inp_f4 = reinterpret_cast<const float4 *>(inp) + blockIdx.x * hidden_size;  
   for (uint idx = threadIdx.x; idx < hidden_size; idx += blockDim.x) {
     float4 val = inp_f4[idx];
@@ -76,10 +78,10 @@ __global__ void ker_layer_norm(T *ln_res, T *vars, T *means, const T *inp,
   const float4 *res_f4 = reinterpret_cast<const float4 *>(ln_res) + blockIdx.x * hidden_size;
   for (uint idx = threadIdx.x; idx < hidden_size; idx += blockDim.x) {
     float4 val = inp_f4[idx];
-    val.x = (val.x - s_mean) * s_var * scale[idx].x + bias[idx].x;
-    val.y = (val.y - s_mean) * s_var * scale[idx].y + bias[idx].y;
-    val.z = (val.z - s_mean) * s_var * scale[idx].z + bias[idx].z;
-    val.w = (val.w - s_mean) * s_var * scale[idx].w + bias[idx].w;
+    val.x = (val.x - s_mu) * s_sig_squared * scale[idx].x + bias[idx].x;
+    val.y = (val.y - s_mu) * s_sig_squared * scale[idx].y + bias[idx].y;
+    val.z = (val.z - s_mu) * s_sig_squared * scale[idx].z + bias[idx].z;
+    val.w = (val.w - s_mu) * s_sig_squared * scale[idx].w + bias[idx].w;
     res_f4[idx] = val;
   }
 
