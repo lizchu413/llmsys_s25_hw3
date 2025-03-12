@@ -47,13 +47,13 @@ __global__ void ker_layer_norm(T *ln_res, T *vars, T *means, const T *inp,
   // Step 1
   float l_sum[1];
   float l_squared_sum[1];
-  l_sum = 0;
-  l_squared_sum = 0;
+  *l_sum = 0;
+  *l_squared_sum = 0;
   const float4 *inp_f4 = reinterpret_cast<const float4 *>(inp) + blockIdx.x * hidden_size;  
   for (uint idx = threadIdx.x; idx < hidden_size; idx += blockDim.x) {
     float4 val = inp_f4[idx];
-    l_sum += val.x + val.y + val.z + val.w;
-    l_squared_sum += val.x * val.x + val.y * val.y + val.z * val.z + val.w * val.w;
+    *l_sum += val.x + val.y + val.z + val.w;
+    *l_squared_sum += val.x * val.x + val.y * val.y + val.z * val.z + val.w * val.w;
   }
   int block_x = blockIdx.x;
 
