@@ -64,11 +64,11 @@ __global__ void ker_layer_norm(T *ln_res, T *vars, T *means, const T *inp,
   __shared__ float s_mu;
   __shared__ float s_sig_squared;
   if (threadIdx.x == 0) {
-    s_mu = l_sum / float(hidden_size);
+    s_mu = *l_sum / float(hidden_size);
     if (means != nullptr) {
       means[block_x] = s_mu;
     }
-    s_sig_squared = l_squared_sum / float(hidden_size) -  s_mu * s_mu + LN_EPSILON;
+    s_sig_squared = *l_squared_sum / float(hidden_size) -  s_mu * s_mu + LN_EPSILON;
     vars[block_x] = s_sig_squared;
     s_sig_squared = rsqrt(s_sig_squared);
   }
