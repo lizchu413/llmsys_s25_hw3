@@ -69,7 +69,7 @@ __global__ void ker_layer_norm(T *ln_res, T *vars, T *means, const T *inp,
       means[block_x] = s_mu;
     }
     s_sig_squared = *l_squared_sum / float(hidden_size) -  s_mu * s_mu + LN_EPSILON;
-    vars[block_x] = s_sig_squared;
+    vars[block_x] = T(s_sig_squared);
     s_sig_squared = rsqrt(s_sig_squared);
   }
   __syncthreads();
