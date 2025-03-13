@@ -462,6 +462,7 @@ class CudaKernelOps(TensorOps):
         hidden_dim,
         stream_1
       )
+      return ln_res
       #   END ASSIGN3_2
       
     @staticmethod
