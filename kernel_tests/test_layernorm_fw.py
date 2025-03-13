@@ -45,6 +45,7 @@ def test_launch_layernorm():
       out_mt = inp_mt.layernorm(gamma_mt, beta_mt)
       end_time = time.time()
       out = torch.tensor(out_mt._tensor._storage).cuda()
+      print(f"custom shape: {out.shape}")
       return [out], end_time - start_time
     
     def baseline():
@@ -64,6 +65,7 @@ def test_launch_layernorm():
       end_time = time.time()
 
       base = torch.tensor(x._tensor._storage).cuda()
+      print(f"baseline shape: {base.shape}")
       return [
           base.contiguous(),
       ], end_time - start_time
