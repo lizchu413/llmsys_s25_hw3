@@ -327,7 +327,7 @@ __global__ void ker_ln_bw_dinp(T *inp_grad, const T *out_grad, const T *inp,
 	dinp.y = (dxhat.y - s_dxhat - xhat.y * s_dxhat_xhat) * sig;
 	dinp.z = (dxhat.z - s_dxhat - xhat.z * s_dxhat_xhat) * sig;
 	dinp.w = (dxhat.w - s_dxhat - xhat.w * s_dxhat_xhat) * sig;
-	((float4 *)inp_grad)[offset] = dinp;
+	((float4 *)inp_grad)[idx] = dinp;
   /// END ASSIGN3_2
 }
 extern "C" {
