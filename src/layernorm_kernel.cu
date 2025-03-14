@@ -302,7 +302,7 @@ __global__ void ker_ln_bw_dinp(T *inp_grad, const T *out_grad, const T *inp,
   float mu = means[mv_idx];
   float sig = vars[mv_idx];
   sig = rsqrtf(sig + LN_EPSILON);
-  xhat = *(reinterpret_cast<const float4 *>(inp)[idx]);
+  xhat = reinterpret_cast<const float4 *>(inp)[idx];
   xhat.x *= mu * sig;
   xhat.y *= mu * sig;
   xhat.z *= mu * sig;
