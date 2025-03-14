@@ -417,7 +417,7 @@ class MatMul(Function):
             order = list(range(a.dims))
             order[-2], order[-1] = order[-1], order[-2]
             return a._new(a._tensor.permute(*order))
-        
+
         return (
             grad_output.f.matrix_multiply(grad_output, transpose(t2)),
             grad_output.f.matrix_multiply(transpose(t1), grad_output),
@@ -427,14 +427,14 @@ class MatMul(Function):
 class Attn_Softmax(Function):
     @staticmethod
     def forward(ctx: Context, inp: Tensor, mask: Tensor) -> Tensor:
-      #   BEGIN ASSIGN3_1 
+      #   BEGIN ASSIGN3_1
       ctx.save_for_backward(inp, mask)
       return inp.f.attn_softmax_fw(inp, mask)
       #   END ASSIGN3_1
 
     @staticmethod
     def backward(ctx: Context, out_grad: Tensor) -> Tuple[Tensor, Tensor]:
-      #   BEGIN ASSIGN3_1 
+      #   BEGIN ASSIGN3_1
       inp, mask = ctx.saved_values
       return (out_grad.f.attn_softmax_bw(out_grad, inp), mask)
       #   END ASSIGN3_1
@@ -443,7 +443,7 @@ class Attn_Softmax(Function):
 class LayerNorm(Function):
     @staticmethod
     def forward(ctx: Context, inp: Tensor, gamma: Tensor, beta: Tensor) -> Tensor:
-      #   BEGIN ASSIGN3_2 
+      #   BEGIN ASSIGN3_2
       ctx.save_for_backward(inp, gamma, beta)
       return inp.f.layernorm_fw(inp, gamma, beta)
       #   END ASSIGN3_2
@@ -451,7 +451,11 @@ class LayerNorm(Function):
     @staticmethod
     def backward(ctx: Context, out_grad: Tensor) -> Tensor:
       #   BEGIN ASSIGN3_2
-      raise NotImplementedError("Need to implement for Assignment 3")
+      inp, gamma, beta = ctx.saved_values
+      # def layernorm_bw(out_grad: Tensor, inp: Tensor, gamma: Tensor, beta: Tensor, var: Tensor, mean: Tensor):
+      # batch_size, hidden_dim = inp.shape[0], inp.shape[1]
+      mean, var = inp.mean(dim=1), inp.var(dim=1)
+      return (out_grad.f.layernorm_bw(out_grad, inp, gamma, beta, var, mean), gamma, beta)
       #   END ASSIGN3_2
 
 
@@ -580,14 +584,14 @@ def tensor_from_numpy(
     res =  minitorch.Tensor(
         v = minitorch.TensorData(
             ls.flatten(), # Will create a COPY of the numpy array
-            ls.shape, 
+            ls.shape,
             tuple(i // datasize for i in ls.strides)
         ),
         backend=backend
     )
 
     res.requires_grad_(requires_grad)
-    
+
     return res
 
 
@@ -599,7 +603,7 @@ def zeros_tensor_from_numpy(shape, backend: TensorBackend = SimpleBackend):
     return minitorch.Tensor(
         v = minitorch.TensorData(
             zs.flatten(), # Will create a COPY of the numpy array
-            shape, 
+            shape,
             tuple(i // datasize for i in zs.strides)
         ),
         backend=backend
@@ -614,7 +618,7 @@ def ones_tensor_from_numpy(shape, backend: TensorBackend = SimpleBackend):
     return minitorch.Tensor(
         v = minitorch.TensorData(
             zs.flatten(), # Will create a COPY of the numpy array
-            shape, 
+            shape,
             tuple(i // datasize for i in zs.strides)
         ),
         backend=backend
