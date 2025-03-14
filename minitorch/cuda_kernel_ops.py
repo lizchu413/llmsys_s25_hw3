@@ -507,6 +507,6 @@ class CudaKernelOps(TensorOps):
         stream_2
       )
 
-      return out_grad, gamma_grad, beta_grad
+      return out_grad, gamma_grad, betta_grad
       #   END ASSIGN3_2
       
