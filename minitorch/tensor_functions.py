@@ -455,7 +455,7 @@ class LayerNorm(Function):
       # def layernorm_bw(out_grad: Tensor, inp: Tensor, gamma: Tensor, beta: Tensor, var: Tensor, mean: Tensor):
       # batch_size, hidden_dim = inp.shape[0], inp.shape[1]
       mean, var = inp.mean(dim=1), inp.var(dim=1)
-      return (out_grad.f.layernorm_bw(out_grad, inp, gamma, beta, var, mean), gamma, beta)
+      return out_grad.f.layernorm_bw(out_grad, inp, gamma, beta, var, mean
       #   END ASSIGN3_2
 
 
