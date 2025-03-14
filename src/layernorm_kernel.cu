@@ -318,9 +318,9 @@ __global__ void ker_ln_bw_dinp(T *inp_grad, const T *out_grad, const T *inp,
   __shared__ float s_dxhat;
   __shared__ float s_dxhat_xhat;
   if (threadIdx.x == 0) {
-      s_dxhat = (dxhat.x + dxhat.y + dxhat.z + dxhat.w) / (hidden_dim * 8);
-      s_dxhat_xhat = (dxhat.x * xhat.x + dxhat.y * xhat.y + dxhat.z * xhat.z +
-                      dxhat.w * xhat.w) / (hidden_dim * 8);
+      s_dxhat = ((*dxhat).x + (*dxhat).y + (*dxhat).z + (*dxhat).w) / (hidden_dim * 8);
+      s_dxhat_xhat = ((*dxhat).x * (*xhat).x + (*dxhat).y * (*xhat).y + (*dxhat).z * (*xhat).z +
+                      (*dxhat).w * (*xhat).w) / (hidden_dim * 8);
   }
   __syncthreads();
 
