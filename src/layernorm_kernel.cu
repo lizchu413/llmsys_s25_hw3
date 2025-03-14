@@ -210,7 +210,6 @@ __global__ void ker_ln_bw_dgamma_dbetta(T *gamma_grad, T *betta_grad,
 
   // Step 1
 	int idx = threadIdx.y * width + blockIdx.x * blockDim.x + threadIdx.x;
-	float dout;
 	float dbetta = 0;
 	float dgamma = 0;
 	for (int i = threadIdx.y; i < rows; i += TILE_DIM) {
