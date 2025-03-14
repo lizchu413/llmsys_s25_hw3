@@ -288,9 +288,7 @@ __global__ void ker_ln_bw_dinp(T *inp_grad, const T *out_grad, const T *inp,
   // 4. Compute final gradient
 
   // Step 1
-  float4 dxhat[1];
-  float4 xhat[1];
-
+  float4 dxhat, xhat;
   int idx = blockIdx.x * hidden_dim + threadIdx.x;
   int mv_idx = blockIdx.x;
   const float4 dy_f4 = reinterpret_cast<const float4 *>(out_grad)[mv_idx];
@@ -310,16 +308,20 @@ __global__ void ker_ln_bw_dinp(T *inp_grad, const T *out_grad, const T *inp,
   xhat.z *= mu * sig;
   xhat.w *= mu * sig;
 
+  float r_dxhat[1];
+  float r_xhat[1];
+  *r_dxhat = dxhat.x + dxhat.y + dxhat.z + dxhat.w;
+  *r_xhat = dxhat.x * xhat.x + dxhat.y * xhat.y + dxhat.z * xhat.z +
+                    dxhat.w * xhat.w;
   // Step 3
-  blockReduce<ReduceType::kSum, 1>(dxhat);
-  blockReduce<ReduceType::kSum, 1>(xhat);
+  blockReduce<ReduceType::kSum, 1>(r_dxhat);
+  blockReduce<ReduceType::kSum, 1>(r_xhat);
   // write shared
   __shared__ float s_dxhat;
   __shared__ float s_dxhat_xhat;
   if (threadIdx.x == 0) {
-      s_dxhat = ((*dxhat).x + (*dxhat).y + (*dxhat).z + (*dxhat).w) / (hidden_dim * 8);
-      s_dxhat_xhat = ((*dxhat).x * (*xhat).x + (*dxhat).y * (*xhat).y + (*dxhat).z * (*xhat).z +
-                      (*dxhat).w * (*xhat).w) / (hidden_dim * 8);
+      s_dxhat = (*r_dxhat) / (hidden_dim * 8);
+      s_dxhat_xhat = (*r_xhat) / (hidden_dim * 8);
   }
   __syncthreads();
 
