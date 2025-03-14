@@ -288,10 +288,9 @@ __global__ void ker_ln_bw_dinp(T *inp_grad, const T *out_grad, const T *inp,
   // 4. Compute final gradient
 
   // Step 1
-  float dxhat[1];
-  float xhat[1];
-  *dxhat = 0;
-  *xhat = 0;
+  float4 dxhat[1];
+  float4 xhat[1];
+
   int idx = blockIdx.x * hidden_dim + threadIdx.x;
   int mv_idx = blockIdx.x;
   const float4 dy_f4 = reinterpret_cast<const float4 *>(out_grad)[mv_idx];
