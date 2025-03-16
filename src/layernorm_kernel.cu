@@ -334,9 +334,9 @@ __global__ void ker_ln_bw_dinp(T *inp_grad, const T *out_grad, const T *inp,
   __syncthreads();
 
   // Step 4
-//     if (threadIdx.x >= hidden_dim) {
-//       return;
-//     }
+    if (threadIdx.x >= hidden_dim) {
+      return;
+    }
 	float4 dinp = dxhat;
 	dinp.x = (dxhat.x - s_dxhat - xhat.x * s_dxhat_xhat) * sig;
 	dinp.y = (dxhat.y - s_dxhat - xhat.y * s_dxhat_xhat) * sig;
