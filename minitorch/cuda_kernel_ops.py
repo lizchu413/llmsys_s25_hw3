@@ -472,7 +472,6 @@ class CudaKernelOps(TensorOps):
 
       batch_size, hidden_dim = inp.shape[0], inp.shape[1]
       stream_1 = torch.cuda.current_stream().cuda_stream
-      stream_2 = torch.cuda.current_stream().cuda_stream
 
       lib_layernorm.launch_layernorm_bw.argtypes = [
         np.ctypeslib.ndpointer(dtype=datatype, ndim=1, flags='C_CONTIGUOUS'),
@@ -504,7 +503,7 @@ class CudaKernelOps(TensorOps):
         batch_size,
         hidden_dim,
         stream_1,
-        stream_2
+        stream_1
       )
 
       return out_grad, gamma_grad, betta_grad
