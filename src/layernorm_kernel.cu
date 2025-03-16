@@ -308,23 +308,28 @@ __global__ void ker_ln_bw_dinp(T *inp_grad, const T *out_grad, const T *inp,
   xhat.z = (xhat.z - mu) * sig;
   xhat.w = (xhat.w - mu) * sig;
 
+  float reduce[2] = {0.f, 0.f}
   float r_dxhat[1] = {0.f};
   float r_xhat[1] = {0.f};
   if (threadIdx.x < hidden_dim) {
-    *r_dxhat = dxhat.x + dxhat.y + dxhat.z + dxhat.w;
-    *r_xhat = dxhat.x * xhat.x + dxhat.y * xhat.y + dxhat.z * xhat.z +
-                    dxhat.w * xhat.w;
+//     *r_dxhat = dxhat.x + dxhat.y + dxhat.z + dxhat.w;
+    reduce[0] = dxhat.x + dxhat.y + dxhat.z + dxhat.w;
+//     *r_xhat = dxhat.x * xhat.x + dxhat.y * xhat.y + dxhat.z * xhat.z + dxhat.w * xhat.w;
+    reduce[1] = dxhat.x * xhat.x + dxhat.y * xhat.y + dxhat.z * xhat.z + dxhat.w * xhat.w;
   }
 
   // Step 3
-  blockReduce<ReduceType::kSum, 1>(r_dxhat);
-  blockReduce<ReduceType::kSum, 1>(r_xhat);
+//   blockReduce<ReduceType::kSum, 1>(r_dxhat);
+//   blockReduce<ReduceType::kSum, 1>(r_xhat);
+  blockReduce<ReduceType::kSum, 2>(reduce);
   // write shared
   __shared__ float s_dxhat;
   __shared__ float s_dxhat_xhat;
   if (threadIdx.x == 0) {
-      s_dxhat = (*r_dxhat) / (hidden_dim * 4);
-      s_dxhat_xhat = (*r_xhat) / (hidden_dim * 4);
+//       s_dxhat = (*r_dxhat) / (hidden_dim * 4);
+//       s_dxhat_xhat = (*r_xhat) / (hidden_dim * 4);
+      s_dxhat = (reduce[0]) / (hidden_dim * 4);
+      s_dxhat_xhat = (reduce[1]) / (hidden_dim * 4);
   }
   __syncthreads();
 
