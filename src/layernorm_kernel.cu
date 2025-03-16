@@ -236,7 +236,7 @@ __global__ void ker_ln_bw_dgamma_dbetta(T *gamma_grad, T *betta_grad,
 	}
 
   // Step 4
-	if (threadIdx.x == 0) {
+	if (threadIdx.x == 0 && blockDim.x * blockIdx.x + threadIdx.x < width) {
 		betta_grad[blockIdx.x * TILE_DIM + threadIdx.y] = buffer_dbetta;
 		gamma_grad[blockIdx.x * TILE_DIM + threadIdx.y] = buffer_dgamma;
 	}
