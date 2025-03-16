@@ -309,8 +309,8 @@ __global__ void ker_ln_bw_dinp(T *inp_grad, const T *out_grad, const T *inp,
   xhat.w = (xhat.w - mu) * sig;
 
   float reduce[2] = {0.f, 0.f};
-  float r_dxhat[1] = {0.f};
-  float r_xhat[1] = {0.f};
+//   float r_dxhat[1] = {0.f};
+//   float r_xhat[1] = {0.f};
   if (threadIdx.x < hidden_dim) {
 //     *r_dxhat = dxhat.x + dxhat.y + dxhat.z + dxhat.w;
     reduce[0] = dxhat.x + dxhat.y + dxhat.z + dxhat.w;
@@ -334,9 +334,9 @@ __global__ void ker_ln_bw_dinp(T *inp_grad, const T *out_grad, const T *inp,
   __syncthreads();
 
   // Step 4
-    if (threadIdx.x >= hidden_dim) {
-      return;
-    }
+//     if (threadIdx.x >= hidden_dim) {
+//       return;
+//     }
 	float4 dinp = dxhat;
 	dinp.x = (dxhat.x - s_dxhat - xhat.x * s_dxhat_xhat) * sig;
 	dinp.y = (dxhat.y - s_dxhat - xhat.y * s_dxhat_xhat) * sig;
