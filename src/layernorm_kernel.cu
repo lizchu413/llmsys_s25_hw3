@@ -213,7 +213,7 @@ __global__ void ker_ln_bw_dgamma_dbetta(T *gamma_grad, T *betta_grad,
 	int idx = threadIdx.y * width + thread_idx;
 	float dbetta = 0;
 	float dgamma = 0;
-	if (idx < width) {
+	if (thread_idx < width) {
 	for (int i = threadIdx.y; i < rows; i += TILE_DIM) {
 		float dout = (float)out_grad[idx];
 		float mu = means[i];
