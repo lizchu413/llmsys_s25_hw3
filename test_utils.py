@@ -168,6 +168,7 @@ class TestDecorator(object):
                 t1.flatten(), t2.flatten(), rtol=rtol, atol=atol, equal_nan=False
             )
             if res:
+                print(f"passed, shape was {t1.shape}")
                 continue
             passed = False
             print("torch.allclose failed, use numpy.allclose to log detail.")
