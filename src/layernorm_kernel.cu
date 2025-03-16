@@ -292,7 +292,7 @@ __global__ void ker_ln_bw_dinp(T *inp_grad, const T *out_grad, const T *inp,
   int idx = blockIdx.x * hidden_dim + threadIdx.x;
   int mv_idx = blockIdx.x;
   const float4 dy_f4 = reinterpret_cast<const float4 *>(out_grad)[idx];
-  const float4 w_f4 = reinterpret_cast<const float4*>(gamma)[mv_idx];
+  const float4 w_f4 = reinterpret_cast<const float4*>(gamma)[threadIdx.x];
   dxhat.x = dy_f4.x * w_f4.x;
   dxhat.y = dy_f4.y * w_f4.y;
   dxhat.z = dy_f4.z * w_f4.z;
