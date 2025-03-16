@@ -209,7 +209,8 @@ __global__ void ker_ln_bw_dgamma_dbetta(T *gamma_grad, T *betta_grad,
   cg::thread_block_tile<TILE_DIM> g = cg::tiled_partition<TILE_DIM>(b);
 
   // Step 1
-	int idx = threadIdx.y * width + blockIdx.x * blockDim.x + threadIdx.x;
+    int thread_idx = blockIdx.x * blockDim.x + threadIdx.x;
+	int idx = threadIdx.y * width + thread_idx;
 	float dbetta = 0;
 	float dgamma = 0;
 	for (int i = threadIdx.y; i < rows; i += TILE_DIM) {
@@ -236,7 +237,7 @@ __global__ void ker_ln_bw_dgamma_dbetta(T *gamma_grad, T *betta_grad,
 	}
 
   // Step 4
-	if (threadIdx.x == 0 && blockDim.x * blockIdx.x + threadIdx.x < width) {
+	if (threadIdx.x == 0 && thread_idx < width) {
 		betta_grad[blockIdx.x * TILE_DIM + threadIdx.y] = buffer_dbetta;
 		gamma_grad[blockIdx.x * TILE_DIM + threadIdx.y] = buffer_dgamma;
 	}
@@ -319,8 +320,8 @@ __global__ void ker_ln_bw_dinp(T *inp_grad, const T *out_grad, const T *inp,
   __shared__ float s_dxhat;
   __shared__ float s_dxhat_xhat;
   if (threadIdx.x == 0) {
-      s_dxhat = (*r_dxhat) / (hidden_dim * 8);
-      s_dxhat_xhat = (*r_xhat) / (hidden_dim * 8);
+      s_dxhat = (*r_dxhat) / (hidden_dim * 4);
+      s_dxhat_xhat = (*r_xhat) / (hidden_dim * 4);
   }
   __syncthreads();
 
