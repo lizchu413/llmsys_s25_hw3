@@ -308,7 +308,7 @@ __global__ void ker_ln_bw_dinp(T *inp_grad, const T *out_grad, const T *inp,
   xhat.z = (xhat.z - mu) * sig;
   xhat.w = (xhat.w - mu) * sig;
 
-  float reduce[2] = {0.f, 0.f}
+  float reduce[2] = {0.f, 0.f};
   float r_dxhat[1] = {0.f};
   float r_xhat[1] = {0.f};
   if (threadIdx.x < hidden_dim) {
