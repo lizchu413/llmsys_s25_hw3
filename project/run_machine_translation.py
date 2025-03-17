@@ -340,6 +340,7 @@ def parse_args():
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--use-fused-kernel', type=str2bool, default=False)
+    parser.add_argument('--n-epochs', type=int, default=20)
     return parser.parse_args()
 
 def main(dataset_name='bbaaaa/iwslt14-de-en-preprocess',
@@ -368,6 +369,7 @@ def main(dataset_name='bbaaaa/iwslt14-de-en-preprocess',
     args = parse_args()
     np.random.seed(seed)
     random.seed(seed)
+    n_epochs = args.n_epochs
 
     workdir = f'./workdir_vocab{n_vocab}_lr{learning_rate}_embd{n_embd}'
     os.makedirs(workdir, exist_ok=True)
@@ -383,7 +385,7 @@ def main(dataset_name='bbaaaa/iwslt14-de-en-preprocess',
         'p_dropout': 0.1,  # x_pdrop
         'ln_eps': 1e-5,  # layer_norm_epsilon
         'backend': backend,
-        'use_fused_kernel': args.use_fused_kernel
+        'use_fused_kernel': args.use_fused_kernel,
     }
 
     model = DecoderLM(**config)
