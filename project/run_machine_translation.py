@@ -387,7 +387,7 @@ def main(dataset_name='bbaaaa/iwslt14-de-en-preprocess',
         'backend': backend,
         'use_fused_kernel': args.use_fused_kernel,
     }
-
+    start = time.time()
     print(f"config file: {config}")
     model = DecoderLM(**config)
     optimizer = minitorch.Adam(model.parameters(), lr=learning_rate)
@@ -430,7 +430,8 @@ def main(dataset_name='bbaaaa/iwslt14-de-en-preprocess',
             desc=desc)
 
         print(f'Epoch {epoch_idx}: Validation Loss = {validation_loss}')
-
+        end = time.time()
+        print(f"time taken: {end - start}")
         gen_sents = generate(
             model=model,
             examples=dataset['test'],
