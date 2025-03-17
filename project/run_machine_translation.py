@@ -388,6 +388,7 @@ def main(dataset_name='bbaaaa/iwslt14-de-en-preprocess',
         'use_fused_kernel': args.use_fused_kernel,
     }
 
+    print(f"config file: {config}")
     model = DecoderLM(**config)
     optimizer = minitorch.Adam(model.parameters(), lr=learning_rate)
 

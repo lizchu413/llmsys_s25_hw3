@@ -116,7 +116,6 @@ class MultiHeadAttention(Module):
             scores = softmax(scores, dim=3)
         else:
             # BEGIN ASSIGN3_3
-            print("using fused kernel for speedup (self_attention)")
             scores = q @ kT / np.sqrt(self.attn_hidden_dim)
             if self.causal:
                 mask = self.create_causal_mask(batch_size, num_head, queries_len)

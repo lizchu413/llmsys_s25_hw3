@@ -156,7 +156,6 @@ class LayerNorm1d(Module):
         """
         batch, dim = x.shape
         if self.use_fused_kernel:
-            print("using fused kernel for speedup (layernorm)")
             return x.layernorm(self.weights.value, self.bias.value)
         ### BEGIN YOUR SOLUTION
         else:
