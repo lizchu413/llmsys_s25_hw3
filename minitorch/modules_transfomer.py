@@ -208,7 +208,7 @@ class TransformerLayer(Module):
         """
 
         # COPY FROM ASSIGN2_4
-        self.attention = MultiHeadAttention(n_embd, n_head, p_dropout=p_dropout, bias=bias, backend=backend)
+        self.attention = MultiHeadAttention(n_embd, n_head, p_dropout=p_dropout, bias=bias, backend=backend, use_fused_kernel=use_fused_kernel)
         self.ff = FeedForward(n_embd, p_dropout=p_dropout, bias=bias, backend=backend)
 
         self.ln_1 = LayerNorm1d(n_embd, eps=ln_eps, backend=backend, use_fused_kernel=use_fused_kernel)
@@ -281,13 +281,17 @@ class DecoderLM(Module):
         self.token_embeddings    = Embedding(n_vocab, n_embd, backend=backend)
         self.position_embeddings = Embedding(n_positions, n_embd, backend=backend)
         self.t_layer_1           = TransformerLayer(n_embd, n_head, p_dropout=p_dropout,
-                                                    ln_eps=ln_eps, bias=bias, backend=backend)
+                                                    ln_eps=ln_eps, bias=bias, backend=backend,
+                                                    use_fused_kernel=use_fused_kernel)
         self.t_layer_2           = TransformerLayer(n_embd, n_head, p_dropout=p_dropout,
-                                                    ln_eps=ln_eps, bias=bias, backend=backend)
+                                                    ln_eps=ln_eps, bias=bias, backend=backend,
+                                                    use_fused_kernel=use_fused_kernel)
         self.t_layer_3           = TransformerLayer(n_embd, n_head, p_dropout=p_dropout,
-                                                    ln_eps=ln_eps, bias=bias, backend=backend)
+                                                    ln_eps=ln_eps, bias=bias, backend=backend,
+                                                    use_fused_kernel=use_fused_kernel)
         self.t_layer_4           = TransformerLayer(n_embd, n_head, p_dropout=p_dropout,
-                                                    ln_eps=ln_eps, bias=bias, backend=backend)
+                                                    ln_eps=ln_eps, bias=bias, backend=backend,
+                                                    use_fused_kernel=use_fused_kernel)
         self.dropout             = Dropout(p_dropout)
         self.lm_head             = Linear(n_embd, n_vocab, bias=bias, backend=backend)
         self.ln                  = LayerNorm1d(n_embd, eps=ln_eps, backend=backend, use_fused_kernel=use_fused_kernel)
