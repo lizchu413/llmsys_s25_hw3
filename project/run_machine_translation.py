@@ -10,6 +10,8 @@ import numpy as np
 from sacrebleu.metrics import BLEU
 from transformers import AutoTokenizer
 from tokenizers import ByteLevelBPETokenizer
+import argparse
+from distutils.util import strtobool
 
 import minitorch
 from minitorch import DecoderLM
@@ -332,6 +334,14 @@ def evaluate_bleu(examples, gen_sents, tgt_key):
     }
 
 
+def parse_args():
+    def str2bool(x):
+        return bool(strtobool(x))
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--use-fused-kernel', type=str2bool, default=False)
+    return parser.parse_args()
+
 def main(dataset_name='bbaaaa/iwslt14-de-en-preprocess',
          model_max_length=40,
          n_epochs=20,
@@ -355,7 +365,7 @@ def main(dataset_name='bbaaaa/iwslt14-de-en-preprocess',
     - n_embd: The embedding dimension.
     - seed: Random seed.
     """
-
+    args = parse_args()
     np.random.seed(seed)
     random.seed(seed)
 
@@ -372,7 +382,8 @@ def main(dataset_name='bbaaaa/iwslt14-de-en-preprocess',
         # 'n_layer'     : 4,    # n_layer
         'p_dropout': 0.1,  # x_pdrop
         'ln_eps': 1e-5,  # layer_norm_epsilon
-        'backend': backend
+        'backend': backend,
+        'use_fused_kernel': args.use_fused_kernel
     }
 
     model = DecoderLM(**config)
