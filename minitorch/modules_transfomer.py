@@ -120,7 +120,7 @@ class MultiHeadAttention(Module):
             if self.causal:
                 mask = self.create_causal_mask(batch_size, num_head, queries_len)
             else:
-                mask = tensor_from_numpy(np.zeros(batch_size, num_head, queries_len, queries_len), backend=self.backend)
+                mask = tensor_from_numpy(np.zeros((batch_size, num_head, queries_len, queries_len), dtype=np.float32), backend=self.backend)
             scores = scores.attn_softmax(mask)
             # END ASSIGN3_3
         result = scores @ v
