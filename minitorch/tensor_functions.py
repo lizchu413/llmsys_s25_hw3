@@ -452,8 +452,6 @@ class LayerNorm(Function):
     def backward(ctx: Context, out_grad: Tensor) -> Tensor:
       #   BEGIN ASSIGN3_2
       inp, gamma, beta = ctx.saved_values
-      # def layernorm_bw(out_grad: Tensor, inp: Tensor, gamma: Tensor, beta: Tensor, var: Tensor, mean: Tensor):
-      # batch_size, hidden_dim = inp.shape[0], inp.shape[1]
       mean, var = inp.mean(dim=1), inp.var(dim=1)
       return out_grad.f.layernorm_bw(out_grad, inp, gamma, beta, var, mean)
       #   END ASSIGN3_2
