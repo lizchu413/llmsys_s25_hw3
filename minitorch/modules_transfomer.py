@@ -107,22 +107,22 @@ class MultiHeadAttention(Module):
         assert q_dim == k_dim == v_dim
         result = None
 
-        # if not self.use_fused_kernel:
+        if not self.use_fused_kernel:
             # COPY FROM ASSIGN2_4
-        if self.causal:
-            scores = q @ kT / np.sqrt(self.attn_hidden_dim) + self.create_causal_mask(batch_size, num_head, queries_len)
+            if self.causal:
+                scores = q @ kT / np.sqrt(self.attn_hidden_dim) + self.create_causal_mask(batch_size, num_head, queries_len)
+            else:
+                scores = q @ kT / np.sqrt(self.attn_hidden_dim)
+            scores = softmax(scores, dim=3)
         else:
+            # BEGIN ASSIGN3_3
             scores = q @ kT / np.sqrt(self.attn_hidden_dim)
-        scores = softmax(scores, dim=3)
-        # else:
-        #     # BEGIN ASSIGN3_3
-        #     scores = q @ kT / np.sqrt(self.attn_hidden_dim)
-        #     if self.causal:
-        #         mask = self.create_causal_mask(batch_size, num_head, queries_len)
-        #     else:
-        #         mask = tensor_from_numpy(np.zeros(batch_size, num_head, queries_len, queries_len), backend=self.backend)
-        #     scores = scores.attn_softmax(mask)
-        #     # END ASSIGN3_3
+            if self.causal:
+                mask = self.create_causal_mask(batch_size, num_head, queries_len)
+            else:
+                mask = tensor_from_numpy(np.zeros(batch_size, num_head, queries_len, queries_len), backend=self.backend)
+            scores = scores.attn_softmax(mask)
+            # END ASSIGN3_3
         result = scores @ v
         result = result.permute(0, 2, 1, 3).contiguous().view(batch_size, queries_len, num_head * q_dim)
         return result
