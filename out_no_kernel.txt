@@ -1,0 +1,678 @@
+
+
+
+config file: {'n_vocab': 10000, 'n_embd': 256, 'n_head': 8, 'n_positions': 40, 'p_dropout': 0.1, 'ln_eps': 1e-05, 'backend': <minitorch.tensor_ops.TensorBackend object at 0x7f6123fed090>, 'use_fused_kernel': False}
+{
+    "data_size": {
+        "train": 97976,
+        "validation": 4512,
+        "test": 100
+    }
+}
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 21.499058961868286
+Backward: 13.642638683319092
+Opt.step: 0.6198577880859375
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.59181809425354
+Backward: 12.532558679580688
+Opt.step: 0.5992412567138672
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.939733743667603
+Backward: 12.450639963150024
+Opt.step: 0.6010241508483887
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.98621702194214
+Backward: 12.380521535873413
+Opt.step: 0.6013154983520508
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.806248664855957
+Backward: 12.361330270767212
+Opt.step: 0.595369815826416
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.611658811569214
+Backward: 12.281264305114746
+Opt.step: 0.6019585132598877
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.425150394439697
+Backward: 12.313133955001831
+Opt.step: 0.6047258377075195
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.72807550430298
+Backward: 12.371845722198486
+Opt.step: 0.6015768051147461
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.915924310684204
+Backward: 12.669920682907104
+Opt.step: 0.597672700881958
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.93929100036621
+Backward: 12.414767980575562
+Opt.step: 0.6028728485107422
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.78164768218994
+Backward: 12.682724237442017
+Opt.step: 0.5981426239013672
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 21.011965036392212
+Backward: 12.436188697814941
+Opt.step: 0.6007533073425293
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.799434185028076
+Backward: 12.652943134307861
+Opt.step: 0.5982484817504883
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.969987869262695
+Backward: 12.596120119094849
+Opt.step: 0.5998544692993164
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.91718292236328
+Backward: 12.935373067855835
+Opt.step: 0.6014702320098877
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.846953868865967
+Backward: 12.65880823135376
+Opt.step: 0.5988590717315674
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.882766008377075
+Backward: 12.930297136306763
+Opt.step: 0.6030607223510742
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.978087663650513
+Backward: 12.641160488128662
+Opt.step: 0.5978991985321045
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.921586513519287
+Backward: 12.927393913269043
+Opt.step: 0.602189302444458
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 21.00729513168335
+Backward: 12.666691303253174
+Opt.step: 0.6032295227050781
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.92107605934143
+Backward: 12.950283765792847
+Opt.step: 0.5999870300292969
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.929373264312744
+Backward: 12.64937686920166
+Opt.step: 0.5929555892944336
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.98285484313965
+Backward: 12.772030353546143
+Opt.step: 0.5995371341705322
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.803990125656128
+Backward: 12.684584856033325
+Opt.step: 0.5994522571563721
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.844727039337158
+Backward: 12.659160375595093
+Opt.step: 0.5959885120391846
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.944297552108765
+Backward: 12.729414939880371
+Opt.step: 0.5987191200256348
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.88455557823181
+Backward: 12.977272033691406
+Opt.step: 0.5988430976867676
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.969290256500244
+Backward: 12.913578510284424
+Opt.step: 0.603600025177002
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.952957153320312
+Backward: 12.961703300476074
+Opt.step: 0.5951118469238281
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.801685571670532
+Backward: 12.905107259750366
+Opt.step: 0.600959300994873
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.95684003829956
+Backward: 12.948956489562988
+Opt.step: 0.6005964279174805
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 21.010661363601685
+Backward: 12.92180347442627
+Opt.step: 0.6043908596038818
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.933241367340088
+Backward: 12.94158124923706
+Opt.step: 0.6039183139801025
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.65989661216736
+Backward: 12.91764211654663
+Opt.step: 0.5965309143066406
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.95318603515625
+Backward: 12.984062194824219
+Opt.step: 0.6034774780273438
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.940605401992798
+Backward: 12.920896768569946
+Opt.step: 0.5990049839019775
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 21.02464747428894
+Backward: 12.95954179763794
+Opt.step: 0.5959029197692871
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 21.009400606155396
+Backward: 12.912601232528687
+Opt.step: 0.5963695049285889
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.980289220809937
+Backward: 12.94450068473816
+Opt.step: 0.5978024005889893
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.97805404663086
+Backward: 13.014855146408081
+Opt.step: 0.6005628108978271
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.735944986343384
+Backward: 12.96872615814209
+Opt.step: 0.5998594760894775
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.93022084236145
+Backward: 12.94046401977539
+Opt.step: 0.5946424007415771
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 21.01549243927002
+Backward: 12.943593978881836
+Opt.step: 0.6002984046936035
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.969151258468628
+Backward: 12.914860248565674
+Opt.step: 0.5931878089904785
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.918806552886963
+Backward: 12.930163860321045
+Opt.step: 0.596858024597168
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.891464233398438
+Backward: 12.915897130966187
+Opt.step: 0.5961015224456787
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.911657333374023
+Backward: 12.932442426681519
+Opt.step: 0.595794677734375
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.956167697906494
+Backward: 12.930847883224487
+Opt.step: 0.5928027629852295
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.937230348587036
+Backward: 12.93220067024231
+Opt.step: 0.6011171340942383
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.97898244857788
+Backward: 12.932609796524048
+Opt.step: 0.5989549160003662
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.895553588867188
+Backward: 12.942960262298584
+Opt.step: 0.5947904586791992
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.985636234283447
+Backward: 12.928050518035889
+Opt.step: 0.6015193462371826
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.899710416793823
+Backward: 12.950799703598022
+Opt.step: 0.5948514938354492
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.95842146873474
+Backward: 12.926367282867432
+Opt.step: 0.6917850971221924
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.943416357040405
+Backward: 12.972485542297363
+Opt.step: 0.5985605716705322
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.94935965538025
+Backward: 12.930561780929565
+Opt.step: 0.6031115055084229
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.753116846084595
+Backward: 12.962868452072144
+Opt.step: 0.5949459075927734
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.813947916030884
+Backward: 12.938849925994873
+Opt.step: 0.6004884243011475
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.373353481292725
+Backward: 12.95552659034729
+Opt.step: 0.6012940406799316
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.372005462646484
+Backward: 12.939461469650269
+Opt.step: 0.6026825904846191
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.902992010116577
+Backward: 12.956737756729126
+Opt.step: 0.5987043380737305
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.946301460266113
+Backward: 12.93809700012207
+Opt.step: 0.5996556282043457
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.97200632095337
+Backward: 12.940812349319458
+Opt.step: 0.6001746654510498
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.976499795913696
+Backward: 12.95269227027893
+Opt.step: 0.6017611026763916
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.968881368637085
+Backward: 12.953838109970093
+Opt.step: 0.5981440544128418
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 21.003904342651367
+Backward: 12.929946899414062
+Opt.step: 0.5993654727935791
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.977590560913086
+Backward: 12.960754632949829
+Opt.step: 0.594818115234375
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.839528799057007
+Backward: 12.910462856292725
+Opt.step: 0.5930185317993164
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 21.03845524787903
+Backward: 12.925122022628784
+Opt.step: 0.6014606952667236
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.473002910614014
+Backward: 12.906932830810547
+Opt.step: 0.5947537422180176
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.94636368751526
+Backward: 12.944907188415527
+Opt.step: 0.5974576473236084
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.615812301635742
+Backward: 12.918901205062866
+Opt.step: 0.5933728218078613
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.858811855316162
+Backward: 12.939889430999756
+Opt.step: 0.599651575088501
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.909178256988525
+Backward: 12.921555042266846
+Opt.step: 0.5948789119720459
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.738760709762573
+Backward: 12.945436716079712
+Opt.step: 0.5940492153167725
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.761495351791382
+Backward: 12.90801215171814
+Opt.step: 0.600853681564331
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.932800769805908
+Backward: 12.94699764251709
+Opt.step: 0.5959756374359131
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.956674814224243
+Backward: 12.963402032852173
+Opt.step: 0.6019151210784912
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.9662127494812
+Backward: 12.928593635559082
+Opt.step: 0.6005733013153076
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.95385456085205
+Backward: 12.922449350357056
+Opt.step: 0.6019268035888672
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.958375215530396
+Backward: 12.917732238769531
+Opt.step: 0.5992014408111572
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.93459153175354
+Backward: 12.911663055419922
+Opt.step: 0.6017451286315918
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.9760422706604
+Backward: 13.01584243774414
+Opt.step: 0.6012172698974609
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.952064514160156
+Backward: 12.915117502212524
+Opt.step: 0.5933005809783936
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.95713472366333
+Backward: 12.912339210510254
+Opt.step: 0.6005687713623047
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.95879626274109
+Backward: 12.89154314994812
+Opt.step: 0.5966434478759766
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.997973203659058
+Backward: 12.92239236831665
+Opt.step: 0.6011114120483398
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.919169425964355
+Backward: 12.913311958312988
+Opt.step: 0.600456953048706
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.930299043655396
+Backward: 12.919007301330566
+Opt.step: 0.600353479385376
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.95940637588501
+Backward: 12.913667440414429
+Opt.step: 0.6016731262207031
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.956111192703247
+Backward: 12.963273048400879
+Opt.step: 0.5965490341186523
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.93777108192444
+Backward: 12.933557748794556
+Opt.step: 0.6009523868560791
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.9439857006073
+Backward: 12.955331325531006
+Opt.step: 0.5928571224212646
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.812914848327637
+Backward: 12.878762245178223
+Opt.step: 0.5948374271392822
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.92333149909973
+Backward: 12.969571590423584
+Opt.step: 0.6032476425170898
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.923340320587158
+Backward: 12.940443754196167
+Opt.step: 0.597252607345581
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.969050645828247
+Backward: 13.029828548431396
+Opt.step: 0.602602481842041
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.899717330932617
+Backward: 12.922795057296753
+Opt.step: 0.5999722480773926
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.877665758132935
+Backward: 12.933315515518188
+Opt.step: 0.6014764308929443
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.978330850601196
+Backward: 12.880920171737671
+Opt.step: 0.6002035140991211
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.91650080680847
+Backward: 12.93663763999939
+Opt.step: 0.6029002666473389
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.896393537521362
+Backward: 12.895264625549316
+Opt.step: 0.598811149597168
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.925657033920288
+Backward: 12.94739055633545
+Opt.step: 0.5981409549713135
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.15811014175415
+Backward: 12.889595746994019
+Opt.step: 0.5981230735778809
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 19.78559374809265
+Backward: 12.974340200424194
+Opt.step: 0.5953819751739502
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 21.01852011680603
+Backward: 12.925007581710815
+Opt.step: 0.5995626449584961
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.993277311325073
+Backward: 12.951215982437134
+Opt.step: 0.5933890342712402
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.961520195007324
+Backward: 12.926370859146118
+Opt.step: 0.5994176864624023
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.980842351913452
+Backward: 12.965357780456543
+Opt.step: 0.5956571102142334
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 21.023069381713867
+Backward: 12.91362977027893
+Opt.step: 0.5970234870910645
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.960514068603516
+Backward: 13.071900129318237
+Opt.step: 0.5971689224243164
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.949743270874023
+Backward: 12.936357975006104
+Opt.step: 0.6027758121490479
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.946960926055908
+Backward: 12.952051401138306
+Opt.step: 0.5984363555908203
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.963480234146118
+Backward: 12.936568021774292
+Opt.step: 0.6038093566894531
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.963085889816284
+Backward: 12.933877229690552
+Opt.step: 0.6000149250030518
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.73341941833496
+Backward: 12.896212339401245
+Opt.step: 0.6009736061096191
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.827613830566406
+Backward: 12.924654245376587
+Opt.step: 0.5995683670043945
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 21.002976894378662
+Backward: 12.94236421585083
+Opt.step: 0.6013648509979248
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.85732388496399
+Backward: 12.998283386230469
+Opt.step: 0.5998928546905518
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.45221757888794
+Backward: 12.935853481292725
+Opt.step: 0.6003761291503906
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.759472131729126
+Backward: 12.956176280975342
+Opt.step: 0.5956990718841553
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.848573446273804
+Backward: 12.905470132827759
+Opt.step: 0.6036028861999512
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.944669485092163
+Backward: 12.955005884170532
+Opt.step: 0.5930671691894531
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.946553230285645
+Backward: 12.897026538848877
+Opt.step: 0.6018273830413818
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.877178192138672
+Backward: 12.97669792175293
+Opt.step: 0.6880614757537842
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.961145401000977
+Backward: 12.933073043823242
+Opt.step: 0.5939388275146484
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.851942539215088
+Backward: 12.967916011810303
+Opt.step: 0.5961706638336182
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.905320405960083
+Backward: 12.928121328353882
+Opt.step: 0.6021902561187744
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.957749366760254
+Backward: 12.959014415740967
+Opt.step: 0.5972585678100586
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.891520261764526
+Backward: 12.916384935379028
+Opt.step: 0.595125675201416
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.760781049728394
+Backward: 12.946953296661377
+Opt.step: 0.6016197204589844
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.88394284248352
+Backward: 12.890060424804688
+Opt.step: 0.6008603572845459
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.78779673576355
+Backward: 12.940492630004883
+Opt.step: 0.6013078689575195
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.58320713043213
+Backward: 12.90165662765503
+Opt.step: 0.5941693782806396
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.842122077941895
+Backward: 12.955031871795654
+Opt.step: 0.5937128067016602
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 21.01326012611389
+Backward: 12.909198999404907
+Opt.step: 0.596146821975708
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.898213624954224
+Backward: 12.936643600463867
+Opt.step: 0.6041724681854248
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.95829463005066
+Backward: 12.891268491744995
+Opt.step: 0.5992166996002197
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.906772136688232
+Backward: 12.948092222213745
+Opt.step: 0.6901187896728516
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.919392108917236
+Backward: 12.908560276031494
+Opt.step: 0.5986332893371582
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.974812269210815
+Backward: 12.951730966567993
+Opt.step: 0.5988774299621582
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.917325019836426
+Backward: 12.91382384300232
+Opt.step: 0.5989105701446533
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.997480630874634
+Backward: 12.939348936080933
+Opt.step: 0.5976378917694092
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.96008825302124
+Backward: 12.911234617233276
+Opt.step: 0.5974078178405762
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.927563667297363
+Backward: 12.938747644424438
+Opt.step: 0.6036782264709473
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.966121673583984
+Backward: 12.911091566085815
+Opt.step: 0.5962116718292236
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.864519119262695
+Backward: 12.946187734603882
+Opt.step: 0.5985045433044434
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.93234896659851
+Backward: 12.928425073623657
+Opt.step: 0.5963172912597656
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.827867031097412
+Backward: 12.954491376876831
+Opt.step: 0.6004328727722168
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.945878505706787
+Backward: 12.91524887084961
+Opt.step: 0.5954179763793945
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.958590269088745
+Backward: 12.938157796859741
+Opt.step: 0.6031787395477295
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.977315187454224
+Backward: 12.925700902938843
+Opt.step: 0.5982096195220947
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.796207189559937
+Backward: 12.939963340759277
+Opt.step: 0.6910481452941895
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.932843685150146
+Backward: 12.90432071685791
+Opt.step: 0.5996084213256836
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.93993639945984
+Backward: 12.927682638168335
+Opt.step: 0.5972588062286377
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+Forward: 20.84905743598938
+Backward: 12.924848079681396
+Opt.step: 0.5923030376434326
+targets shape: (1248, 1) log_sums shape: (1248, 1)
+Forward: 5.200766324996948
+Backward: 3.537278652191162
+Opt.step: 0.6011910438537598
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+targets shape: (4992, 1) log_sums shape: (4992, 1)
+targets shape: (1248, 1) log_sums shape: (1248, 1)
+Epoch 0: Validation Loss = 2.4237077236175537
+time taken: 6107.300806045532
+Epoch 0: {'bleu': 0.23945608646009398}
